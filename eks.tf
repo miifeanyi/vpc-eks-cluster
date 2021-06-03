@@ -20,6 +20,13 @@ module "my-cluster" {
   cluster_version = "1.17"
   subnets         = module.vpc.private_subnets
   vpc_id          = module.vpc.vpc_id
+  map_roles = [
+    {
+      rolearn  = "arn:aws:iam::187852450557:policy/EKSDevPolicy"
+      username = "EKSDevpolicy"
+      groups   = ["system:masters"]
+    },
+  ]
 
   worker_groups = [
     {

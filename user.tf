@@ -14,7 +14,7 @@ module "iam_iam-group-with-policies" {
   source      = "terraform-aws-modules/iam/aws//modules/iam-group-with-policies"
   version     = "2.3.0"
   name        = "eks-developers"
-  group_users = ["module.iam_user.name"]
+  group_users = ["eks.user"]
   custom_group_policies = [
     { name = "EKSDevPolicy"
       policy = jsonencode({
