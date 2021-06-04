@@ -20,10 +20,10 @@ module "my-cluster" {
   cluster_version = "1.17"
   subnets         = module.vpc.private_subnets
   vpc_id          = module.vpc.vpc_id
-  map_roles = [
+  map_users = [
     {
-      rolearn  = "arn:aws:iam::187852450557:policy/EKSDevPolicy"
-      username = "EKSDevpolicy"
+      userarn  = "arn:aws:iam::187852450557:user/eks.user"
+      username = "eks.user"
       groups   = ["system:masters"]
     },
   ]
