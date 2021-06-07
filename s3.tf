@@ -1,19 +1,9 @@
-terraform {
-  backend "s3" {
-    bucket = "eks.bucket"
-    key    = "project/terraform.tfstate"
-    region = "us-east-1"
-  }
-}
-
 module "s3_bucket" {
   source = "terraform-aws-modules/s3-bucket/aws"
-
   bucket = "eks.bucket"
-  acl    = "public-read-write"
-
+  acl    = "private"
   versioning = {
-    enabled = true
+    enabled = false
   }
 }
 
