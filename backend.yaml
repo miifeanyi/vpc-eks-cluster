@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: backend-ubuntu
+spec:
+  containers:
+    - args:
+        - /bin/bash
+        - -c
+        - sleep 3600
+      image: ubuntu
+      name: backend-ubuntu
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  annotations:
+    eks.amazonaws.com/role-arn: arn:aws:iam::187852450557:role/eks.dynamoAccessRole
+  name: backend-ubuntu
