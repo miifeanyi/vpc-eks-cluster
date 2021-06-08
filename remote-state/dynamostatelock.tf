@@ -1,4 +1,4 @@
-resource "aws_dynamodb_table" "basic-dynamodb-table" {
+resource "aws_dynamodb_table" "statelock-table" {
   name         = "statelocking-dynamodb"
   billing_mode = "PAY_PER_REQUEST"
   hash_key     = "LockID"
@@ -9,7 +9,7 @@ resource "aws_dynamodb_table" "basic-dynamodb-table" {
   }
 
   tags = {
-    Name        = "dynamodb-table-1"
-    Environment = "production"
+    Name        = "dynamodb-statelock-table"
+    Environment = "dev"
   }
 }
